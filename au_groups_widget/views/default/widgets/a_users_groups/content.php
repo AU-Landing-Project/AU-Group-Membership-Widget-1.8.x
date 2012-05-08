@@ -1,9 +1,5 @@
 <?php
-/**
- * Elgg bookmarks widget
- *
- * @package Bookmarks
- */
+
 $widget = $vars['entity'];
 
 // now we can get our content
