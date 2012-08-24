@@ -1,7 +1,11 @@
 <?php
 
-elgg_unregister_widget_type('a_users_groups');
-elgg_register_widget_type('a_users_groups', elgg_echo('groups:widget:membership'), elgg_echo('groups:widgets:description'), 'all', TRUE);
+elgg_register_event_handler("init", "system", "au_groups_widget_init");
+
+function au_groups_widget_init() {
+  elgg_unregister_widget_type('a_users_groups');
+  elgg_register_widget_type('a_users_groups', elgg_echo('groups:widget:membership'), elgg_echo('groups:widgets:description'), 'all', TRUE);
+}
 
 // custom options for select
 function eligo_groups_select_options($widget, $vars){
@@ -22,6 +26,7 @@ function eligo_groups_select_options($widget, $vars){
   // otherwise invalidate the query
   if(count($group_guids) > 0){
     $options['guids'] = $group_guids;
+    $options['limit'] = 0;
   }
   else{
     $options['subtypes'] = array('eligo_invalidate_query');
