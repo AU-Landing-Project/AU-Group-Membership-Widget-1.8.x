@@ -14,7 +14,7 @@ function eligo_groups_select_options($widget, $vars){
   // not the most efficient, but fits better with the framework
   $user = get_user($widget->owner_guid);
     
-  $groups = $user->getGroups();
+  $groups = $user->getGroups('', 0, 0);
   
   $group_guids = array();
   foreach($groups as $group){
