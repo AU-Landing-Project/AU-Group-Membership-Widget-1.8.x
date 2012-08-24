@@ -1,10 +1,7 @@
 <?php
 
-// no setup required here
-// all taken care of in the au_widget_framework
-// only thing here is views for the widget
-// start.php is required for the plugin skeleton however.
-
+elgg_unregister_widget_type('a_users_groups');
+elgg_register_widget_type('a_users_groups', elgg_echo('groups:widget:membership'), elgg_echo('groups:widgets:description'), 'all', TRUE);
 
 // custom options for select
 function eligo_groups_select_options($widget, $vars){
